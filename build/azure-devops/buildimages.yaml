@@ -81,15 +81,15 @@ jobs:
 #         TAG=${{ variables['Build.SourceBranchName'] }}
 #         PLATFORM=win
 #         NODE_IMAGE=stefanscherer/node-windows:10
-  - task: DockerCompose@0
-    displayName: Compose push ${{ parameters.services }}
-    inputs:
-      dockerComposeCommand: 'push ${{ parameters.services }}'
-      azureSubscriptionEndpoint: ${{ parameters.azureServiceConnection }}
-      azureContainerRegistry: ${{ parameters.registryEndpoint }}
-      dockerComposeFile: src/docker-compose.yml
-      qualifyImageNames: true
-      projectName: ""
-      dockerComposeFileArgs: |
-        TAG=${{ variables['Build.SourceBranchName'] }}
-        PLATFORM=win
+  # - task: DockerCompose@0
+  #   displayName: Compose push ${{ parameters.services }}
+  #   inputs:
+  #     dockerComposeCommand: 'push ${{ parameters.services }}'
+  #     azureSubscriptionEndpoint: ${{ parameters.azureServiceConnection }}
+  #     azureContainerRegistry: ${{ parameters.registryEndpoint }}
+  #     dockerComposeFile: src/docker-compose.yml
+  #     qualifyImageNames: true
+  #     projectName: ""
+  #     dockerComposeFileArgs: |
+  #       TAG=${{ variables['Build.SourceBranchName'] }}
+  #       PLATFORM=win
