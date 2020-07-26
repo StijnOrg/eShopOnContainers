@@ -22,8 +22,9 @@ jobs:
     registryEndpoint: $(registryEndpoint)
     helmfrom: $(Build.SourcesDirectory)/deploy/k8s/helm
     helmto: $(Build.ArtifactStagingDirectory)/deploy/k8s/helm
+    azureServiceConnection: $(azdevopsAzureServiceConnectionName)
 - template: ../multiarch.yaml
   parameters:
     image: ordering.api
     branch: $(Build.SourceBranchName)
-    registryEndpoint: $(registryEndpoint)
+    registry: $(registryEndpoint)
