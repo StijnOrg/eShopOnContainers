@@ -53,7 +53,7 @@ jobs:
       qualifyImageNames: true
       projectName: ""
       dockerComposeFileArgs: |
-        TAG=${{ variables['Build.SourceBranchName'] }}
+        TAG=${{ variables['Build.BuildNumber'] }}
   - task: CopyFiles@2
     inputs:
       sourceFolder: ${{ parameters.helmfrom }}

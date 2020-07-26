@@ -21,8 +21,8 @@ jobs:
     helmfrom: $(Build.SourcesDirectory)/deploy/k8s/helm
     helmto: $(Build.ArtifactStagingDirectory)/deploy/k8s/helm
     azureServiceConnection: $(azdevopsAzureServiceConnectionName)
-- template: ../multiarch.yaml
-  parameters:
-    image: webmvc
-    branch: $(Build.SourceBranchName)
-    registry: $(registryEndpoint)
+# - template: ../multiarch.yaml
+#   parameters:
+#     image: webmvc
+#     branch: $(Build.SourceBranchName)
+#     registry: $(registryEndpoint)
