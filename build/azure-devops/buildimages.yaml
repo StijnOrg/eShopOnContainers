@@ -42,7 +42,7 @@ jobs:
       qualifyImageNames: true
       projectName: ""
       dockerComposeFileArgs: |
-        TAG=${{ variables['Build.SourceBranchName'] }}
+        TAG=${{ variables['Build.BuildNumber'] }}
   - task: DockerCompose@0
     displayName: Compose push ${{ parameters.images }}
     inputs:
