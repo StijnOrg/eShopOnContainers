@@ -10,8 +10,8 @@ jobs:
   dependsOn:
     # - BuildWindows
     - BuildLinux  
-  pool: 
-    vmImage: 'Ubuntu 16.04'
+  pool: 'ACIPool'
+    # vmImage: 'Ubuntu 16.04'
   steps:
   - task: Docker@2
     displayName: Docker Login
