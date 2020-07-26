@@ -3,6 +3,7 @@ parameters:
   registryEndpoint: ''
   helmfrom: ''
   helmto: ''
+  azureServiceConnection: ''
 
 jobs:
 - job: BuildContainersForPR_Linux
@@ -35,8 +36,8 @@ jobs:
     displayName: Compose build ${{ parameters.services }}
     inputs:
       dockerComposeCommand: 'build ${{ parameters.services }}'
-      containerregistrytype: Container Registry
-      dockerRegistryEndpoint: ${{ parameters.registryEndpoint }}
+      azureSubscriptionEndpoint: ${{ parameters.azureServiceConnection }}
+      azureContainerRegistry: ${{ parameters.registryEndpoint }}
       dockerComposeFile: src/docker-compose.yml
       qualifyImageNames: true
       projectName: ""
@@ -46,8 +47,8 @@ jobs:
     displayName: Compose push ${{ parameters.images }}
     inputs:
       dockerComposeCommand: 'push ${{ parameters.services }}'
-      containerregistrytype: Container Registry
-      dockerRegistryEndpoint: ${{ parameters.registryEndpoint }}
+      azureSubscriptionEndpoint: ${{ parameters.azureServiceConnection }}
+      azureContainerRegistry: ${{ parameters.registryEndpoint }}
       dockerComposeFile: src/docker-compose.yml
       qualifyImageNames: true
       projectName: ""
@@ -84,8 +85,8 @@ jobs:
     displayName: Compose push ${{ parameters.services }}
     inputs:
       dockerComposeCommand: 'push ${{ parameters.services }}'
-      containerregistrytype: Container Registry
-      dockerRegistryEndpoint: ${{ parameters.registryEndpoint }}
+      azureSubscriptionEndpoint: ${{ parameters.azureServiceConnection }}
+      azureContainerRegistry: ${{ parameters.registryEndpoint }}
       dockerComposeFile: src/docker-compose.yml
       qualifyImageNames: true
       projectName: ""
